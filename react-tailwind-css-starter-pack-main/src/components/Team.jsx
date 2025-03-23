@@ -44,7 +44,8 @@ const TeamPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+    <section id="team">
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
       <section id="team" className="py-16 px-4 w-full max-w-screen-lg mx-auto">
         <FadeIn>
           <div className="text-center mb-16">
@@ -71,6 +72,7 @@ const TeamPage = () => {
         </div>
       </section>
     </div>
+    </section>
   );
 };
 

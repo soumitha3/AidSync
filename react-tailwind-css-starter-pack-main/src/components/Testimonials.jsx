@@ -26,7 +26,7 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="py-16 bg-gradient-to-b from-blue-50 to-indigo-100">
+    <section id="impact" className="py-16 bg-gradient-to-b from-blue-50 to-indigo-100">
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900">What Parents Say</h2>
       </div>

@@ -2,7 +2,8 @@ import { motion } from "framer-motion";
 import miss from "../assests/missin.jpg"
 const MissionSection = () => {
   return (
-    <motion.section
+    <section id="about">
+      <motion.section
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
@@ -10,7 +11,10 @@ const MissionSection = () => {
       className="flex flex-col md:flex-row items-center justify-between bg-white p-10 rounded-2xl shadow-lg mx-10 mt-10"
     >
       {/* Left Side Content */}
-      <div className="md:w-1/2 text-left">
+
+
+     
+      <div id="#about" className="md:w-1/2 text-left">
         <motion.span
           className="bg-blue-100 text-blue-900 font-semibold px-4 py-2 rounded-full text-sm"
           whileHover={{ scale: 1.1 }}
@@ -66,6 +70,7 @@ const MissionSection = () => {
             </div>
           </div>
         </div>
+      
 
         {/* Explore Programs Button */}
         <motion.button
@@ -90,6 +95,7 @@ const MissionSection = () => {
         />
       </motion.div>
     </motion.section>
+    </section>
   );
 };
 
