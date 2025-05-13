@@ -46,7 +46,7 @@ const Navbar = () => {
             className="h-10 w-auto transform group-hover:scale-110 transition duration-300"
           />
           <span className="ml-2 text-lg font-bold text-gray-900 group-hover:text-blue-600 transition duration-300">
-            Ishanya India Foundation
+              AidSync
           </span>
         </a>
 

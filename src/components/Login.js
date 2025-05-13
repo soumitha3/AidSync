@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Mail, Lock, ArrowLeft } from "lucide-react";
 import bcrypt from "bcryptjs";
 import { auth, provider } from "../firebase"; // Firebase Config
@@ -10,20 +10,19 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [userRole, setUserRole] = useState("");
-  const [error, setError] = useState(""); // Inline error message
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Check if the user role is selected before logging in
-    if (!userRole || userRole === "Select User") {
+    if (!userRole) {
       setError("Please select a user role before logging in.");
       return;
     }
 
-    setError(""); // Clear any previous error
+    setError(""); // Clear previous errors
 
-    // Hash password before sending (for security)
+    // Hash the password before sending (for security)
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
@@ -31,17 +30,11 @@ const Login = () => {
     console.log(`Hashed Password: ${hashedPassword}`);
     console.log(`User Role: ${userRole}`);
 
-    // Save role in localStorage
     localStorage.setItem("userRole", userRole);
 
-    // Redirect based on user role
-    if (userRole === "Parent") {
-      navigate("/parent-dashboard");
-    } else if (userRole === "Teacher") {
-      navigate("/teacher-dashboard");
-    } else if (userRole === "Admin") {
-      navigate("/admin-dashboard");
-    }
+    if (userRole === "Parent") navigate("/parent-dashboard");
+    else if (userRole === "Teacher") navigate("/teacher-dashboard");
+    else if (userRole === "Admin") navigate("/admin-dashboard");
   };
 
   // Google Sign-in
@@ -49,7 +42,7 @@ const Login = () => {
     try {
       const result = await signInWithPopup(auth, provider);
       console.log("Google User:", result.user);
-      navigate("/parent-dashboard"); // Redirect after successful Google login
+      navigate("/parent-dashboard");
     } catch (error) {
       console.error("Google Sign-in Error:", error);
     }
@@ -59,7 +52,7 @@ const Login = () => {
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-lg w-96 relative">
         
-        {/* Back to Homepage Button */}
+        {/* Back Button */}
         <button 
           className="absolute top-3 left-3 flex items-center text-gray-600 hover:text-blue-600 transition duration-200"
           onClick={() => navigate("/")}
@@ -113,10 +106,10 @@ const Login = () => {
               value={userRole}
               onChange={(e) => setUserRole(e.target.value)}
             >
-              <option>Select User</option>
-              <option>Parent</option>
-              <option>Teacher</option>
-              <option>Admin</option>
+              <option value="" disabled>Select User</option>
+              <option value="Parent">Parent</option>
+              <option value="Teacher">Teacher</option>
+              <option value="Admin">Admin</option>
             </select>
             {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
           </div>
@@ -140,16 +133,13 @@ const Login = () => {
             Google
           </button>
 
-          {/* Apply Now Link */}
-          <p className="text-center text-sm text-gray-500 mt-4">
+          {/* Apply Now Link (Fixed) */}
+          <div className="text-center text-sm text-gray-500 mt-4">
             Want to apply for a job or register a child?{" "}
-            <button 
-              className="text-blue-500 hover:underline" 
-              onClick={() => navigate("/apply-now")}
-            >
+            <Link to="/apply-now" className="text-blue-500 hover:underline">
               Apply Now
-            </button>
-          </p>
+            </Link>
+          </div>
         </form>
       </div>
     </div>
