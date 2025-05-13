@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/AidSync/static/css/main.0724faea.css",
+    "main.js": "/AidSync/static/js/main.1fd615a7.js",
+    "static/media/hand.png": "/AidSync/static/media/hand.bbd3ca910024cc800bf5.png",
+    "static/media/logofront.png": "/AidSync/static/media/logofront.cf5d156ab41acc35c124.png",
+    "static/media/ragu.jpg": "/AidSync/static/media/ragu.9b41e12d0d916f3d3d9e.jpg",
+    "static/media/swati.jpg": "/AidSync/static/media/swati.14575db416896c60bc47.jpg",
+    "static/media/sir.jpg": "/AidSync/static/media/sir.24acdaadc990e3737a7f.jpg",
+    "static/media/missin.jpg": "/AidSync/static/media/missin.1c3d536816759d5d2efa.jpg",
+    "index.html": "/AidSync/index.html",
+    "main.0724faea.css.map": "/AidSync/static/css/main.0724faea.css.map",
+    "main.1fd615a7.js.map": "/AidSync/static/js/main.1fd615a7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0724faea.css",
+    "static/js/main.1fd615a7.js"
+  ]
+}
