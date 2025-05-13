@@ -1,5 +1,6 @@
 {
-  "name": "react-tailwind-css-starter-pack",
+  "homepage": "https://soumitha3.github.io/Aid-Sync/",
+  "name": "AidSync",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
